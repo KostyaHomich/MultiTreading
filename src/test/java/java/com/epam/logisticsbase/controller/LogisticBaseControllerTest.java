@@ -1,8 +1,7 @@
 package java.com.epam.logisticsbase.controller;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import java.com.epam.logisticsbase.controller.LogisticBaseController;
 
 public class LogisticBaseControllerTest {
 
@@ -28,4 +27,5 @@ public class LogisticBaseControllerTest {
         LogisticBaseController logisticBaseController=LogisticBaseController.getInstance();
         logisticBaseController.readFileAndStartThreads("","",0);
     }
+
 }

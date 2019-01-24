@@ -1,0 +1,46 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="Cars">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Car" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element name="Name">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value=".+"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Priority" default="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="1"/>
+                                        <xs:enumeration value="2"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Terminal" default="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:int">
+                                        <xs:enumeration value="1"/>
+                                        <xs:enumeration value="2"/>
+                                        <xs:enumeration value="3"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Action" default="loading">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="loading"/>
+                                        <xs:enumeration value="unloading"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:all>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
