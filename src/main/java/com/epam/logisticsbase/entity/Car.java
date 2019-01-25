@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Car implements Runnable {
 
@@ -38,20 +37,28 @@ public class Car implements Runnable {
         try {
             logger.info(name + " waiting for enter to logistic base");
             semaphore.acquire();
-            Thread.sleep(10);
-            logger.info(name + " changed condition in terminal " + terminalObj.getId() + " priority "+priority );
+            TimeUnit.SECONDS.sleep(1);
+            logger.info(name + " changed condition in terminal " + terminalObj.getId() + " priority " + priority);
+            changeAction(this);
 
-        } catch (InterruptedException e) {
-            logger.info(e.getMessage());
-
-        }
-        catch (NullPointerException e)
-        {
-
-        }
-        finally {
-            logger.info(name+" finish the job");
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        } finally {
+            logger.info(name + " finish the job");
             semaphore.release();
+        }
+    }
+
+    private void changeAction(Car car) {
+        switch (car.getAction()) {
+            case "unloading":
+                car.setAction("unload");
+                break;
+            case "loading":
+                car.setAction("load");
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
 
