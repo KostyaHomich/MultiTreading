@@ -18,7 +18,6 @@ public class Car implements Runnable {
     private int priority;
     private int terminal;
     private Semaphore semaphore;
-    private ReentrantLock locker;
     private Terminal terminalObj;
 
 
@@ -116,14 +115,6 @@ public class Car implements Runnable {
 
     public void setSemaphore(Semaphore semaphore) {
         this.semaphore = semaphore;
-    }
-
-    public ReentrantLock getLocker() {
-        return locker;
-    }
-
-    public void setLocker(ReentrantLock locker) {
-        this.locker = locker;
     }
 
     public Terminal getTerminalObj() {
