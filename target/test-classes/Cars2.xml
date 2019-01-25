@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Cars>
+    <Car>
+        <Name></Name>
+        <Priority>5</Priority>
+        <Terminal>100000</Terminal>
+        <Action>adfgdfg</Action>
+    </Car>
+</Cars>
